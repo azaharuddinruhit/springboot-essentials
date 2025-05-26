@@ -7,7 +7,7 @@ This repository is a **template Spring Boot project** designed to demonstrate ad
 ## ✨ Features
 
 ✅ Spring Boot 3.5.0
-✅ Java 24
+✅ Java 21
 ✅ Gradle build system
 ✅ RESTful API design  
 ✅ Spring Data JPA with H2 / PostgreSQL  
@@ -28,7 +28,7 @@ This repository is a **template Spring Boot project** designed to demonstrate ad
 
 ### Prerequisites
 
-- Java 24
+- Java 21
 - Gradle 8.14.1
 - Docker
 
