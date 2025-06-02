@@ -14,7 +14,7 @@ public class ApplicationConfig {
 
     @Bean
     public OpenAPI springOpenAPI() {
-        // http://localhost:20020/token-management-service-1.0/swagger-ui/index.html
+        // http://localhost:20020/se/swagger-ui/index.html
         Info info = new Info()
                 .title("Springboot Essentials")
                 .version("1.0.0");
