@@ -1,4 +1,4 @@
-package com.springcraft.se.core.service;
+package com.springcraft.se.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
