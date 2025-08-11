@@ -1,0 +1,34 @@
+type Query {
+    books(
+        limit: Int,
+        offset: Int
+    ): [Book],
+    searchBooks(
+        limit: Int,
+        offset: Int,
+        titleContains: String,
+        authorContains: String,
+        sortBy: BookSortField,
+        sortDirection: SortDirection
+    ): [Book]
+}
+
+type Mutation {
+    addBook(title: String!, author: String!): Book
+}
+
+type Book {
+    id: Int
+    title: String
+    author: String
+}
+
+enum BookSortField {
+    TITLE
+    AUTHOR
+}
+
+enum SortDirection {
+    ASC
+    DESC
+}
