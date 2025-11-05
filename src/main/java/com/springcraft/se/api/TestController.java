@@ -1,6 +1,9 @@
 package com.springcraft.se.api;
 
+import com.springcraft.se.model.Order;
+import com.springcraft.se.service.KafkaProducerService;
 import com.springcraft.se.service.RabbitMQService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.MediaType;
@@ -10,19 +13,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
-@RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1")
+@RestController
 @Slf4j
 public class TestController {
 
     private final RedisTemplate<String, Object> redisTemplate;
     private final RabbitMQService rabbitMQService;
-
-    public TestController(RedisTemplate<String, Object> redisTemplate,
-                          RabbitMQService rabbitMQService) {
-        this.redisTemplate = redisTemplate;
-        this.rabbitMQService = rabbitMQService;
-    }
+    private final KafkaProducerService kafkaProducerService;
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> saveToLocal(@RequestParam("file") MultipartFile file) {
@@ -44,5 +43,11 @@ public class TestController {
     @PostMapping("/rabbitmq")
     public void sendMessage(@RequestBody String message) {
         rabbitMQService.sendMessage(message);
+    }
+
+    @PostMapping("/kafka/publish")
+    public String publishOrder(@RequestBody Order order) {
+        kafkaProducerService.sendOrder(order);
+        return "Order sent to Kafka topic!";
     }
 }
