@@ -1,4 +1,4 @@
-package com.springcraft.se.core.service;
+package com.springcraft.se.service;
 
 import com.springcraft.se.core.dto.UserDTO;
 import com.springcraft.se.core.entity.UserEntity;

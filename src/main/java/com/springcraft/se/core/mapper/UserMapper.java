@@ -13,10 +13,10 @@ public interface UserMapper {
 
     DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-//    @Mapping(source = "dateOfBirth", target = "dob", dateFormat = "yyyy-MM-dd")
+    @Mapping(source = "dateOfBirth", target = "dob", dateFormat = "yyyy-MM-dd")
     UserDTO toDto(UserEntity user);
 
-//    @Mapping(source = "dob", target = "dateOfBirth")
+    @Mapping(source = "dob", target = "dateOfBirth")
     UserEntity toEntity(UserDTO dto);
 
     default String map(LocalDate date) {
