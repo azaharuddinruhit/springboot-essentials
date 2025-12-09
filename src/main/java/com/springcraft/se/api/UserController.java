@@ -1,7 +1,7 @@
 package com.springcraft.se.api;
 
 import com.springcraft.se.core.dto.UserDTO;
-import com.springcraft.se.core.service.UserService;
+import com.springcraft.se.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
