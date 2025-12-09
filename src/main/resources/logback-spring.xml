@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>localhost:5000</destination>
+
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp/>
+                <pattern>
+                    <pattern>
+                        {
+                        "app_name": "${springAppName:-}"
+                        }
+                    </pattern>
+                </pattern>
+                <context/>
+                <logLevel/>
+                <loggerName/>
+                <threadName/>
+                <message/>
+                <logLevel/>
+                <stackTrace/>
+            </providers>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/> <appender-ref ref="LOGSTASH"/>
+    </root>
+
+    <logger name="com.your.package" level="DEBUG" />
+</configuration>

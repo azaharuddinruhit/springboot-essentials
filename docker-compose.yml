@@ -31,5 +31,52 @@ services:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.2
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false # Disable security for simple local setup
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # Adjust memory if needed
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    networks:
+      - elastic
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.19.2
+    container_name: logstash
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/config/logstash.conf # Mount config file
+    ports:
+      - "5000:5000" # Logstash input port (we'll use this from Spring Boot)
+    environment:
+      - "LS_JAVA_OPTS=-Xms512m -Xmx512m" # Adjust memory if needed
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.19.2
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200 # Use service name within docker network
+      - KIBANA_SYSTEM_PASSWORD=changeme # Set a password
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
 volumes:
   pgdata:
+
+networks:
+  elastic:
+    driver: bridge
