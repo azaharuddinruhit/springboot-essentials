@@ -1,8 +1,7 @@
 package com.springcraft.se.mapper;
 
 import com.springcraft.se.domain.BookEntity;
-import com.springcraft.se.model.BookDto;
-import org.mapstruct.InheritInverseConfiguration;
+import com.springcraft.se.dto.BookDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

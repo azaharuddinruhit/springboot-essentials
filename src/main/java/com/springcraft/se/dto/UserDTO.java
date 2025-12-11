@@ -1,12 +1,13 @@
-package com.springcraft.se.core.dto;
+package com.springcraft.se.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.springcraft.se.core.enums.UserType;
+import com.springcraft.se.domain.UserEntity;
+import com.springcraft.se.enums.UserType;
 
 import java.util.Map;
 
 /**
- * DTO for {@link com.springcraft.se.core.entity.UserEntity}
+ * DTO for {@link UserEntity}
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record UserDTO(

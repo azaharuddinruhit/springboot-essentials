@@ -1,8 +1,8 @@
 package com.springcraft.se.service;
 
-import com.springcraft.se.core.dto.UserDTO;
-import com.springcraft.se.core.entity.UserEntity;
-import com.springcraft.se.core.mapper.UserMapper;
+import com.springcraft.se.domain.UserEntity;
+import com.springcraft.se.dto.UserDTO;
+import com.springcraft.se.mapper.UserMapper;
 import com.springcraft.se.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
