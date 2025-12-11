@@ -38,3 +38,7 @@ This repository is a **template Spring Boot project** designed to demonstrate ad
 ```bash
 git clone https://github.com/azaharuddinruhit/springboot-essentials.git
 cd springboot-essentials
+```
+
+### References
+- https://www.danvega.dev/blog/spring-boot-4-api-versioning
