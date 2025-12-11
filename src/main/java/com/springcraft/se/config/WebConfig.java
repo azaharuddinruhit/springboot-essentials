@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
                 //.useQueryParam("version") // Query parameter-based
                 //.useMediaTypeParameter(MediaType.APPLICATION_JSON, "version") // Media type
                 //.usePathSegment(1) // Index of the path segment containing version
-                .addSupportedVersions("1.0", "2.0")
+                .addSupportedVersions("1.0", "2.0", "3.0")
                 .setDefaultVersion("1.0")
                 .setVersionParser(new ApiVersionParser());
     }

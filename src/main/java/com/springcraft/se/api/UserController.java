@@ -2,6 +2,7 @@ package com.springcraft.se.api;
 
 import com.springcraft.se.dto.UserDTO;
 import com.springcraft.se.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.Objects;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 @Slf4j
+@Tag(name = "User Controller", description = "It contains user related endpoints")
 public class UserController {
 
     private final UserService userService;
@@ -29,6 +31,12 @@ public class UserController {
         return userService.getAllUsers().stream()
                 .filter(e -> Objects.equals(e.id(), userId))
                 .toList();
+    }
+
+    @GetMapping(version = "3.0")
+    public List<UserDTO> getUsersV3() {
+        log.info("Getting all users V3");
+        return userService.getAllUsers();
     }
 
     @PostMapping
