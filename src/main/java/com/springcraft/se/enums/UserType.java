@@ -1,4 +1,4 @@
-package com.springcraft.se.core.enums;
+package com.springcraft.se.enums;
 
 public enum UserType {
     REGULAR,

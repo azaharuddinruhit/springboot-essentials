@@ -1,8 +1,8 @@
 package com.springcraft.se.service;
 
 import com.springcraft.se.domain.BookEntity;
+import com.springcraft.se.dto.BookDto;
 import com.springcraft.se.mapper.BookMapper;
-import com.springcraft.se.model.BookDto;
 import com.springcraft.se.repository.BookRepository;
 import com.springcraft.se.repository.BookSpecification;
 import lombok.extern.slf4j.Slf4j;

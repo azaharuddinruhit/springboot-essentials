@@ -1,4 +1,4 @@
-package com.springcraft.se.model;
+package com.springcraft.se.dto;
 
 public record BookDto(
         Integer id,

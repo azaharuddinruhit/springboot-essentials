@@ -1,4 +1,4 @@
-package com.springcraft.se.core.entity;
+package com.springcraft.se.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

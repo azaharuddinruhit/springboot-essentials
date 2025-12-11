@@ -1,7 +1,7 @@
-package com.springcraft.se.core.mapper;
+package com.springcraft.se.mapper;
 
-import com.springcraft.se.core.dto.UserDTO;
-import com.springcraft.se.core.entity.UserEntity;
+import com.springcraft.se.domain.UserEntity;
+import com.springcraft.se.dto.UserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

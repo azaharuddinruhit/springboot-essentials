@@ -1,8 +1,8 @@
 package com.springcraft.se.api;
 
+import com.springcraft.se.dto.BookDto;
 import com.springcraft.se.enums.BookSortField;
 import com.springcraft.se.enums.SortDirection;
-import com.springcraft.se.model.BookDto;
 import com.springcraft.se.service.BookService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
