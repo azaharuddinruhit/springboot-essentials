@@ -6,8 +6,8 @@ This repository is a **template Spring Boot project** designed to demonstrate ad
 
 ## ✨ Features
 
-✅ Spring Boot 3.5.0
-✅ Java 21
+✅ Spring Boot 4.0.0
+✅ Java 25
 ✅ Gradle build system
 ✅ RESTful API design  
 ✅ Spring Data JPA with H2 / PostgreSQL  
@@ -28,9 +28,9 @@ This repository is a **template Spring Boot project** designed to demonstrate ad
 
 ### Prerequisites
 
-- Java 21
-- Gradle 8.14.1
-- Docker
+- Java 25
+- Gradle 9.2.1
+- Docker Desktop
 
 
 ### Clone the project
@@ -38,3 +38,7 @@ This repository is a **template Spring Boot project** designed to demonstrate ad
 ```bash
 git clone https://github.com/azaharuddinruhit/springboot-essentials.git
 cd springboot-essentials
+```
+
+### References
+- https://www.danvega.dev/blog/spring-boot-4-api-versioning

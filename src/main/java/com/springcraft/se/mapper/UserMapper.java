@@ -1,7 +1,7 @@
-package com.springcraft.se.core.mapper;
+package com.springcraft.se.mapper;
 
-import com.springcraft.se.core.dto.UserDTO;
-import com.springcraft.se.core.entity.UserEntity;
+import com.springcraft.se.domain.UserEntity;
+import com.springcraft.se.dto.UserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -13,10 +13,10 @@ public interface UserMapper {
 
     DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-//    @Mapping(source = "dateOfBirth", target = "dob", dateFormat = "yyyy-MM-dd")
+    @Mapping(source = "dateOfBirth", target = "dob", dateFormat = "yyyy-MM-dd")
     UserDTO toDto(UserEntity user);
 
-//    @Mapping(source = "dob", target = "dateOfBirth")
+    @Mapping(source = "dob", target = "dateOfBirth")
     UserEntity toEntity(UserDTO dto);
 
     default String map(LocalDate date) {

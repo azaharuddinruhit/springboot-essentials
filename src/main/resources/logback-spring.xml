@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <!-- Load Spring Boot properties -->
+    <springProperty name="LOG_LEVEL" source="logging.level.root" defaultValue="INFO"/>
+
+    <!-- === COLOR PATTERN ===
+         %highlight        → auto-colors log level
+         %cyan %yellow etc → human friendly
+    -->
+    <property name="COLOR_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%cyan(%thread)] %yellow(%logger{36}) - %msg%n"/>
+
+    <!-- === CONSOLE APPENDER WITH COLORS === -->
+    <appender name="COLORED_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${COLOR_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- === SPRING / COMMON LOG LEVELS === -->
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.hibernate.SQL" level="WARN"/>
+    <logger name="org.hibernate.type.descriptor.sql" level="ERROR"/>
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+
+    <!-- Your Application Package -->
+    <logger name="com.springcraft.se" level="${LOG_LEVEL}"/>
+
+    <!-- === ROOT LOGGER === -->
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="COLORED_CONSOLE"/>
+    </root>
+
+</configuration>
